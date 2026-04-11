@@ -23,22 +23,27 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
   final String title;
-
+  
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-  TextEditingController _controller = TextEditingController();
+  int? editingIndex;
+  final TextEditingController _controller = TextEditingController();
   List<String> items = [];
 
   void addItem() {
-      setState(() {
-        items.add(_controller.text);
-        _controller.clear();
-      });
-  }
+  setState(() {
+    if (editingIndex == null) {
+      items.add(_controller.text);
+    } else {
+      items[editingIndex!] = _controller.text;
+      editingIndex = null;
+    }
+    _controller.clear();
+  });
+}
 
   @override
   Widget build(BuildContext context) {
@@ -78,8 +83,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   return Card(
                     child: ListTile(
                       title: Text(items[index]),
+                      onTap: () {
+                        setState(() {
+                          _controller.text = items[index]; // put text in field
+                          editingIndex = index; // mark editing
+                        });
+                      },
                       trailing: IconButton(
-                        icon: const Icon(Icons.delete),
+                        icon: const Icon(Icons.delete_forever_rounded),
                         onPressed: () {
                           setState(() {
                             items.removeAt(index);
