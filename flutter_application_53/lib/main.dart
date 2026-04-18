@@ -85,8 +85,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       title: Text(items[index]),
                       onTap: () {
                         setState(() {
-                          _controller.text = items[index]; // put text in field
-                          editingIndex = index; // mark editing
+                          _controller.text = items[index]; 
+                          editingIndex = index; 
                         });
                       },
                       trailing: IconButton(

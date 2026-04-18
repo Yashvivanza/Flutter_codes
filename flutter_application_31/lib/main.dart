@@ -16,6 +16,7 @@ class _MyAppState extends State<MyApp>
   @override
   void initState()
   {
+    // ignore: unused_local_variable
     Timer mytimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       DateTime timenow = DateTime.now();
       
@@ -27,6 +28,7 @@ class _MyAppState extends State<MyApp>
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Test App",

@@ -44,7 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
           Text("🐱 Cat"),
           Text("🐶 Dog"),
           Text("🐼 Panda"),
-          
         ],
       ),
     );

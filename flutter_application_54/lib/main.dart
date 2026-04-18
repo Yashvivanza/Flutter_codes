@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Add Item App',
       theme: ThemeData(
-        primarySwatch: const Color.fromARGB(255, 30, 64, 92),
+        primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Add Item App'),

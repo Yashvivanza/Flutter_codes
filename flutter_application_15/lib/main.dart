@@ -52,7 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
               activeColor: const Color.fromARGB(255, 93, 0, 81),
               onChanged: (value) {
                 setState(() {
-                  var  _isreult = value;
                 });
               },
             ),

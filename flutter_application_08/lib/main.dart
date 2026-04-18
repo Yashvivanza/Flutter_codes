@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
            Text("Start Demo"),
            Text("Value is $num"),
-           Text("$message"),
+           Text(message),
             ElevatedButton(onPressed: () {
              incrementData();
             }, child: Text("+"),

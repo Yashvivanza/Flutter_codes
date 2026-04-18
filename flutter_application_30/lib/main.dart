@@ -42,7 +42,7 @@ void main() {
     {
       timer.cancel();
     }
-    print("Values of a is ${a}");
+    print("Values of a is $a");
     a++;
   });
 }

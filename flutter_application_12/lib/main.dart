@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Switch(
              value: is_onoff,
-             activeColor: const Color.fromARGB(255, 199, 219, 25),
+             activeThumbColor: const Color.fromARGB(255, 199, 219, 25),
              activeTrackColor: const Color.fromARGB(255, 88, 98, 117),
              inactiveThumbColor: const Color.fromARGB(255, 199, 219, 25),
              inactiveTrackColor: const Color.fromARGB(2255, 88, 98, 117),

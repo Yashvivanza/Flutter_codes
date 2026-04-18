@@ -92,6 +92,7 @@ void _GetData() async {
   var prefs = await SharedPreferences.getInstance();
   final int? counter = prefs.getInt('counter');
 
+  
   homeKey.currentState?.setState(() {
     homeKey.currentState!.myText = "Get Data : $counter";
   });
