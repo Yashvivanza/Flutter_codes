@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "95461439416",
+    "project_id": "yashviflutterapp",
+    "storage_bucket": "yashviflutterapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95461439416:android:24fc16d3d51b31eb61814d",
+        "android_client_info": {
+          "package_name": "com.example.yashvi_flutter_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0S2Zc0dE4nOGegbvdK6YO7j0vjxuURe4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
