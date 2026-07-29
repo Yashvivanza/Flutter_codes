@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:path/path.dart';
+import 'package:path/path.dart' as p;
 
 void main() {
-  runApp(const MaterialApp(home: HomePage()));
+  runApp(const MaterialApp(home: HomePage(),
+  debugShowCheckedModeBanner: true,));
 }
 
 class HomePage extends StatefulWidget {
@@ -31,19 +32,19 @@ class _HomePageState extends State<HomePage> {
 
   // INIT DB
   void initDB() async {
-    String path = join(await getDatabasesPath(), 'employee.db');
+    String path = p.join(await getDatabasesPath(), 'employee.db');
 
     database = await openDatabase(
       path,
       version: 1,
       onCreate: (db, version) async {
-        await db.execute('''
+        await db.execute("""
           CREATE TABLE emp(
             empid INTEGER PRIMARY KEY AUTOINCREMENT,
             empname TEXT,
             empmobile TEXT
           )
-        ''');
+        """);
       },
     );
 
@@ -52,20 +53,89 @@ class _HomePageState extends State<HomePage> {
 
   // INSERT
   void insertData() async {
-    await database!.insert('emp', {
-      'empname': nameController.text,
-      'empmobile': mobileController.text,
-    });
+
+    if (nameController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Please enter employee name"),
+        ),
+      );
+      return;
+    }
+
+    if (mobileController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Please enter mobile number"),
+        ),
+      );
+      return;
+    }
+
+    if (mobileController.text.length != 10) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Mobile number must be 10 digits"),
+        ),
+      );
+      return;
+    }
+
+    await database!.insert(
+      'emp',
+      {
+        'empname': nameController.text,
+        'empmobile': mobileController.text,
+      },
+    );
 
     clearFields();
     loadData();
+
+    // ignore: use_build_context_synchronously
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text("Employee Added Successfully"),
+      ),
+    );
   }
 
   // UPDATE
   void updateData() async {
+
+    if (nameController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Please enter employee name"),
+        ),
+      );
+      return;
+    }
+
+    if (mobileController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Please enter mobile number"),
+        ),
+      );
+      return;
+    }
+
+    if (mobileController.text.length != 10) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Mobile number must be 10 digits"),
+        ),
+      );
+      return;
+    }
+
     await database!.update(
       'emp',
-      {'empname': nameController.text, 'empmobile': mobileController.text},
+      {
+        'empname': nameController.text,
+        'empmobile': mobileController.text,
+      },
       where: 'empid=?',
       whereArgs: [updateId],
     );
@@ -73,6 +143,12 @@ class _HomePageState extends State<HomePage> {
     isUpdate = false;
     clearFields();
     loadData();
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text("Employee Updated Successfully"),
+      ),
+    );
   }
 
   // DELETE
@@ -101,24 +177,30 @@ class _HomePageState extends State<HomePage> {
     updateId = data['empid'];
     isUpdate = true;
     setState(() {});
+    
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Employee CRUD App')),
-
+      
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
           children: [
+            
             TextField(
               controller: nameController,
               decoration: const InputDecoration(labelText: "Name"),
             ),
-            TextField(
+           TextField(
               controller: mobileController,
-              decoration: const InputDecoration(labelText: "Mobile"),
+              keyboardType: TextInputType.phone,
+              maxLength: 10,
+              decoration: const InputDecoration(
+                labelText: "Mobile",
+              ),
             ),
             const SizedBox(height: 10),
 
