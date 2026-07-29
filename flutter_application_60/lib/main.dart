@@ -83,6 +83,7 @@ void _SaveData() async {
   var prefs = await SharedPreferences.getInstance();
   await prefs.setInt('counter', 20);
 
+  // ignore: invalid_use_of_protected_member
   homeKey.currentState?.setState(() {
     homeKey.currentState!.myText = "Saved";
   });
@@ -93,6 +94,7 @@ void _GetData() async {
   final int? counter = prefs.getInt('counter');
 
   
+  // ignore: invalid_use_of_protected_member
   homeKey.currentState?.setState(() {
     homeKey.currentState!.myText = "Get Data : $counter";
   });
@@ -102,6 +104,7 @@ void _RemoveData() async {
   var prefs = await SharedPreferences.getInstance();
   await prefs.remove('counter');
 
+  // ignore: invalid_use_of_protected_member
   homeKey.currentState?.setState(() {
     homeKey.currentState!.myText = "Removed";
   });
