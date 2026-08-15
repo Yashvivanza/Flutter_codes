@@ -3,17 +3,18 @@ import 'package:flutter/material.dart';
 void main()
 {
   runApp(const MaterialApp(
-    home: MyWidget(),
+    debugShowCheckedModeBanner: false,
+    home: MyApp(),
   ));
 }
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<MyApp> createState() => _MyAppState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Container(color: Colors.red[300],);
