@@ -4,7 +4,7 @@ import 'package:path/path.dart' as p;
 
 void main() {
   runApp(const MaterialApp(home: HomePage(),
-  debugShowCheckedModeBanner: true,));
+  debugShowCheckedModeBanner: false,));
 }
 
 class HomePage extends StatefulWidget {
@@ -183,7 +183,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Employee CRUD App')),
+      appBar: AppBar(
+        title: const Text('Employee CRUD App'),
+        backgroundColor: Colors.blue),
       
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -203,7 +205,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             const SizedBox(height: 10),
-
             ElevatedButton(
               onPressed: isUpdate ? updateData : insertData,
               child: Text(isUpdate ? "Update Employee" : "Add Employee"),

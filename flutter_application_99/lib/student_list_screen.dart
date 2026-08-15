@@ -126,16 +126,6 @@ class _StudentListScreenState
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
-            Text(
-              "Total Students: ${students.length}",
-              style:
-                  const TextStyle(
-                fontSize: 18,
-                fontWeight:
-                    FontWeight.bold,
-              ),
-            ),
-
             const SizedBox(height: 10),
 
             TextField(
@@ -153,7 +143,7 @@ class _StudentListScreenState
                     OutlineInputBorder(),
               ),
             ),
-
+            
             const SizedBox(height: 10),
 
             Expanded(
@@ -181,7 +171,7 @@ class _StudentListScreenState
                       ),
 
                       subtitle: Text(
-                        "${student['rollNo']} • ${student['department']} ${student['email']}",
+                        "${student['rollNo']} • ${student['department']} \n${student['email']}",
                       ),
 
                       trailing: Row(
@@ -231,9 +221,18 @@ class _StudentListScreenState
                           ),
                         ],
                       ),
-                    ),
+                    ),                    
                   );
                 },
+              ),
+            ),
+            Text(
+              "Total Students: ${students.length}",
+              style:
+                  const TextStyle(
+                fontSize: 18,
+                fontWeight:
+                    FontWeight.bold,
               ),
             ),
           ],

@@ -16,13 +16,13 @@ class UserController extends GetxController {
   void updateName(String value) {
     name.value = value;
   }
-}
+} 
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
   final UserController controller = Get.put(UserController());
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
