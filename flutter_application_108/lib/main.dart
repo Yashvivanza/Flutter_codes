@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_108/pages/first_page.dart';
 import 'package:flutter_application_108/pages/home_page.dart';
+import 'package:flutter_application_108/pages/profile_page.dart';
 import 'package:flutter_application_108/pages/settings_page.dart';
 
 void main() {
@@ -16,8 +17,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: FirstPage(),
       routes: {
-        '/first-page': (context) => const FirstPage(),
+        '/first-page': (context) => FirstPage(),
         '/home-page': (context) => const HomePage(),
+        '/profile-page': (context) => const ProfilePage(),
         '/settings-page': (context) => const SettingsPage(),
       },
     );
