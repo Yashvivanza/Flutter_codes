@@ -61,6 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
     var d = a - b;
     var e = a * b;
     var f = a / b;
+    var ans =  a > b ? "N1 is greater" : "N2 is greater";
+    print( "Condition: $ans");
     setState((){
       message = "Addition is $c";
       message += "\nSubtraction is $d";
