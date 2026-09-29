@@ -1,16 +1,15 @@
 import 'dart:io';
-
-void main() {
-  int rows = 6;
-  for (int i = 0; i < rows; i++) {
-    // Print leading spaces
-    for (int j = 0; j < rows - i - 1; j++) {
-      stdout.write('  ');
+void main() 
+{
+  for (int i = 1; i <= 5; i++) 
+  {
+    for (int j = 5; j >= 1; j--) 
+    {
+      if (i >= j) {
+        stdout.write('*');
+      }
+      else{stdout.write(' ');}
     }
-    // Print stars
-    for (int k = 0; k <= i; k++) {
-      stdout.write('* ');
-    }
-    stdout.writeln();
+    print('');
   }
 }
