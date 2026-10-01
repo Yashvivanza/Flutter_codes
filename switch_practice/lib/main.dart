@@ -31,12 +31,17 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Row(
         children: [
           Switch(
-            value: is_onoff, 
-            onChanged: (value) {
-              setState(() {
-                is_onoff = value;
-              });
-            }),
+          value: is_onoff,
+          activeColor: Colors.green,
+          activeTrackColor: Colors.blue,
+          inactiveThumbColor: Colors.amber,
+          inactiveTrackColor: Colors.red,
+          onChanged: (value) {
+          setState(() {
+          is_onoff = value;
+          });
+          },
+          ),
             Text("$is_onoff"),
         ],
       )
